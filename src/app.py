@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+#haha
 from .data.database import db
 from .extensions import bcrypt, login_manager, mail, migrate
 from .loggers import get_app_stderr_handler, configure_sqlalchemy_logger

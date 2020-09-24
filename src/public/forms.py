@@ -45,7 +45,7 @@ class masoform(Form):
     typ=SelectField('Typ', choices=[(1, "Hovezi"), (2, "Veprove")], default=2)
 
 class obdelnik(Form):
-    a = FloatField("strana a: ", validators=[InputRequired(message="vyzadovano"), NumberRange(min = 0, messagemessage="vyzadovano")])
-    b = FloatField("strana b: ", validators=[InputRequired(message="vyzadovano"), NumberRange(min=0, messagemessage="vyzadovano")])
+    a = FloatField("strana a: ", validators=[InputRequired(message="vyzadovano"), NumberRange(min = 0, message=">0")])
+    b = FloatField("strana b: ", validators=[InputRequired(message="vyzadovano"), NumberRange(min=0, message=">0")])
 
-    type = SelectField("type", choices=[(1, "Square"), (2, "Rectangle"), (3, "Triangle")], default=1)
+    type = SelectField("type", choices=[("1", "Square"), ("2", "Rectangle"), ("3", "Triangle")], default=1)

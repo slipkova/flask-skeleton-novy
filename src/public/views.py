@@ -41,5 +41,6 @@ def masof():
 def Rect():
     form = obdelnik()
     if form.validate_on_submit():
-        return render_template("public/obd.tmpl", form = form)
+        if form.type.data == "1":
+            return str(pow(form.a.data, 2))
     return render_template("public/obd.tmpl", form=form)

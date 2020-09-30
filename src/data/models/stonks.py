@@ -7,7 +7,7 @@ from ..database import db
 from ..mixins import CRUDModel
 
 class Stonks(CRUDModel):
-    __tablename__ = 'loguser1'
+    __tablename__ = 'stonks'
     __table_args__ = {'sqlite_autoincrement': True}
     id = Column(Integer, primary_key=True )
     company = Column(String(60), nullable=False, index=False)
@@ -26,5 +26,5 @@ class Stonks(CRUDModel):
             setattr(self, k, v)
     @staticmethod
     def find_by_prijmeni(prijmeni):
-        return db.session.query(LogUser1).filter_by(prijmeni = prijmeni).all()
+        return db.session.query(Stonks).filter_by(prijmeni = prijmeni).all()
 

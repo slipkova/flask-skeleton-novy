@@ -1,0 +1,18 @@
+{% from "macros/fields.tmpl" import render_input_field, render_submit %}
+{% extends "shared/layout.tmpl" %}
+
+{% block title %}LIST{% endblock %}
+
+{% block content %}
+  <h3>insert</h3>
+  <div class="form-group">Table</div>
+ <table>
+    {% for n in pole %}
+        <tr>
+            <td>{{ n.company }}</td>
+            <td>{{ n.value }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

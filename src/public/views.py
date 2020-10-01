@@ -5,6 +5,7 @@ from flask import Blueprint, render_template
 from .forms import LogUserForm, secti, masoform, obdelnik
 from ..data.database import db
 from ..data.models import LogUser
+from ..data.models.stonks import Stonks
 blueprint = Blueprint('public', __name__)
 
 @blueprint.route('/', methods=['GET'])
@@ -55,6 +56,12 @@ def chart():
 
 @blueprint.route('/add_row')
 def add():
-    text = "bajjkbgf"
-    student = Stonks
-    Stonks.create(new, student)
+    new = Stonks(company = "Auto", short = "A", value = "20", last_value  = "50")
+    db.session.add(new)
+    db.session.commit()
+    return "ok"
+
+@blueprint.route('/output')
+def out():
+    pole = db.session.query(Stonks).all()
+    return render_template('public/data.tmpl', pole = pole)
